@@ -1,28 +1,21 @@
-import java.util.*;
-
 class Solution {
     public List<Integer> majorityElement(int[] nums) {
-        List<Integer> arr = new ArrayList<>();
-        int n = nums.length;
-        int nbt = n / 3;  // floor division is enough
-
-        for (int i = 0; i < n; i++) {
-            int c = nums[i];
-            int count = 1;
-
-            // count occurrences of nums[i]
-            for (int j = i + 1; j < n; j++) {
-                if (nums[j] == c) {
-                    count++;
+        Map<Integer, Integer> mp=new HashMap<>();
+        List<Integer> lt= new ArrayList<>();
+        int n=nums.length;
+        
+        for(int i=0;i<nums.length;i++){
+                 
+                mp.put(nums[i],mp.getOrDefault(nums[i],0)+1);
+                if(mp.get(nums[i])>n/3&&!lt.contains(nums[i])){
+                    lt.add(nums[i]);
                 }
-            }
 
-            // check if > n/3 and not already in list
-            if (count > nbt && !arr.contains(c)) {
-                arr.add(c);
-            }
+            
+            
         }
-
-        return arr;
+        
+            return lt;
+        
     }
 }
