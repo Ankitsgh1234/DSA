@@ -4,11 +4,8 @@ class Solution {
         int sum=0;
         int max=Integer.MAX_VALUE;
         for(int i=0;i<n;i++){
-            sum=0;
-            for(int j=0;j<2;j++){
-                sum+=tasks[i][j];
-
-            }
+            sum=tasks[i][0]+tasks[i][1];
+             
             max=Math.min(sum,max);
         }
         return max;
