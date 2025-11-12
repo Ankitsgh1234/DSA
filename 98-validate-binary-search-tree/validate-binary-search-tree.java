@@ -14,18 +14,27 @@
  * }
  */
 class Solution {
+    TreeNode prev = null; // keep track of previous node
+    boolean isValid = true; // global flag
+
     public boolean isValidBST(TreeNode root) {
-        return isValid(root, Long.MIN_VALUE, Long.MAX_VALUE);
+        inorder(root);
+        return isValid;
     }
 
-    private boolean isValid(TreeNode node, long min, long max) {
-        if (node == null) return true;
+    public void inorder(TreeNode root) {
+        if (root == null || !isValid) return;
 
-        // Current node must be within the valid range
-        if (node.val <= min || node.val >= max) return false;
+        inorder(root.left);
 
-        // Recursively validate left and right subtrees
-        return isValid(node.left, min, node.val) &&
-               isValid(node.right, node.val, max);
+        // check increasing order property
+        if (prev != null && root.val <= prev.val) {
+            isValid = false;
+            return;
+        }
+
+        prev = root;
+
+        inorder(root.right);
     }
 }
