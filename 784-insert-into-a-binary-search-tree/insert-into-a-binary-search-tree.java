@@ -18,27 +18,22 @@ class Solution {
         TreeNode temp=new TreeNode(val);
         if(root==null){
             return temp;
-
         }
-        if(val<root.val&&root.left==null){
+        if(root.val>val&&root.left==null){
             root.left=temp;
-
+            return root;
         }
-        if(val>root.val&&root.right==null){
+        if(root.val<val&&root.right==null){
             root.right=temp;
-
+            return root;
         }
-        if(val<root.val&&root.left!=null){
-            root.left= insertIntoBST(root.left,val);
-
+        if(root.val>val&&root.left!=null){
+            insertIntoBST(root.left,val);
         }
-        if(val>root.val&&root.right!=null){
-            root.right= insertIntoBST(root.right,val);
-
+        if(root.val<val&&root.right!=null){
+            insertIntoBST(root.right,val);
         }
         return root;
-
         
     }
-   
 }
