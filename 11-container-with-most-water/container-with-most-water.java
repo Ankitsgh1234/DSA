@@ -18,9 +18,6 @@ class Solution {
                 r--;
             }
         }
-
-
         return max;
-        
     }
 }
