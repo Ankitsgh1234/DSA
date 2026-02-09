@@ -1,15 +1,20 @@
 class Solution {
-    public int fibbn(int m){
-        if(m==0) return 0;
-        if(m==1||m==2){
-            return 1;
-        }
-        return fibbn(m-1)+fibbn(m-2);
-    }
-
     public int fib(int n) {
-
-        return fibbn(n);
-                  
+        if(n<=1){
+            return n;
+        }
+        int fib=0;
+        int i=2;
+        int one=1;
+        int zero=0;
+        int three=0;
+        while(i<=n){
+            three=one+zero;
+            zero=one;
+            one=three;
+            i++;
+            
+        }
+        return three;
     }
 }
