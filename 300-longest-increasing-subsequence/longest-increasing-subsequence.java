@@ -5,23 +5,18 @@ class Solution {
         int max=0;
         dp[0]=1;
         for(int i=0;i<n;i++){
-            int num=nums[i];
             max=0;
             for(int j=i-1;j>=0;j--){
                 if(nums[i]>nums[j]){
                     max=Math.max(max,dp[j]);
-
                 }
             }
             dp[i]=1+max;
         }
-
         int ans=0;
         for(int i=0;i<n;i++){
             ans=Math.max(ans,dp[i]);
         }
-
         return ans;
     }
-
 }
