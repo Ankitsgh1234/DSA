@@ -15,34 +15,34 @@
  */
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
-         int n = height(root);
-        List<List<Integer>> ans=new ArrayList<>();
+        int n = height(root);
+        List<List<Integer>> ans = new ArrayList<>();
         for (int i = 1; i <= height(root); i++) {
-            List<Integer> arr=new ArrayList<>();
+            List<Integer> arr = new ArrayList<>();
+
+            nthorder(root, i, arr);
             
-                nthorder(root, i,arr);
-                ans.add(arr);
-            
+            ans.add(arr);
+
         }
         return ans;
     }
 
-    public static void nthorder(TreeNode root, int n,List<Integer> arr) {
+    public static void nthorder(TreeNode root, int n, List<Integer> arr) {
         if (root == null) {
             return;
         }
         if (n == 1) {
             arr.add(root.val);
-            
+
             return;
         }
-        
 
-            nthorder(root.left, n - 1,arr);
-            nthorder(root.right, n - 1,arr);
+        nthorder(root.left, n - 1, arr);
+        nthorder(root.right, n - 1, arr);
 
-       
     }
+
     public static int height(TreeNode root) {
         if (root == null) {
             return 0;
