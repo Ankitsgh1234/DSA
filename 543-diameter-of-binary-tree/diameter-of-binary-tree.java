@@ -14,33 +14,29 @@
  * }
  */
 class Solution {
-    static Map<TreeNode,Integer> map;
     public int diameterOfBinaryTree(TreeNode root) {
-        if(root==null){
+          if(root==null){
             return 0;
         }
-        map=new HashMap<>();
-        int a=diameterOfBinaryTree(root.left);
-        int b=diameterOfBinaryTree(root.right);
-       
-
-        int mid=level(root.left)+level(root.right);
-        
-        if(root.left!=null)mid++;
-        if(root.right!=null)mid++;
-        return Math.max(a,Math.max(mid,b));
+        if(root.left==null&&root.right==null){
+            return 0;
+        }
+        int left=diameterOfBinaryTree(root.left);
+        int right=diameterOfBinaryTree(root.right);
+        int dial=height(root.left);
+        int diar=height(root.right);
+        int dia=diar+dial;
+        if(root.left!=null) dia++;
+        if(root.right!=null) dia++;
+        return Math.max(left,Math.max(dia,right));
     }
-    public static int level(TreeNode root){
+    public static int height(TreeNode root){
         if(root==null){
             return 0;
         }
         if(root.left==null&&root.right==null){
             return 0;
         }
-         if(map.containsKey(root)){
-            return map.get(root);
-        }
-        map.put(root,1+Math.max(level(root.left),level(root.right)));
-        return map.get(root);
+        return 1+Math.max(height(root.left),height(root.right));
     }
 }
