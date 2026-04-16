@@ -2,4 +2,4 @@
 select w1.id from Weather w1
 inner join Weather w2
 -- on w1.id=w2.id
-where datediff(w1.recordDate,w2.recordDate)=1 and w1.temperature    >w2.temperature;
+where datediff(w1.recordDate,w2.recordDate)=1 and w1.temperature>w2.temperature;
