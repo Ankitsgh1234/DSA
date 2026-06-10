@@ -18,26 +18,24 @@ class Solution {
         if(root==null){
             return true;
         }
-        if(root.left==null&&root.right==null){
-            return true;
-        }
-        int left=height(root.left);
-        if(root.left!=null)left++;
-        int right=height(root.right);
-        if(root.right!=null)right++;
-        if(Math.abs(left-right)>1){
+        int lh=height(root.left);
+        int rh=height(root.right);
+        if(Math.abs(lh-rh)>=2){
             return false;
         }
         return (isBalanced(root.left)&&isBalanced(root.right));
 
+
     }
-       public static int height(TreeNode root){
-        if(root==null){
+      public static int height(TreeNode root) {
+        if (root == null) {
             return 0;
         }
         if(root.left==null&&root.right==null){
-            return 0;
+            return 1;
         }
-        return 1+Math.max(height(root.left),height(root.right));
+        return 1 + Math.max(height(root.left), height(root.right));
     }
+
+
 }
