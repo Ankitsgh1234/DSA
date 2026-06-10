@@ -15,28 +15,29 @@
  */
 class Solution {
     public int diameterOfBinaryTree(TreeNode root) {
-          if(root==null){
+        if (root == null) {
             return 0;
         }
-        if(root.left==null&&root.right==null){
-            return 0;
-        }
-        int left=diameterOfBinaryTree(root.left);
-        int right=diameterOfBinaryTree(root.right);
-        int dial=height(root.left);
-        int diar=height(root.right);
-        int dia=diar+dial;
-        if(root.left!=null) dia++;
-        if(root.right!=null) dia++;
-        return Math.max(left,Math.max(dia,right));
+        int d=diameter(root);
+        d=Math.max(d,diameterOfBinaryTree(root.left));
+        d=Math.max(d,diameterOfBinaryTree(root.right));
+        return d;
     }
-    public static int height(TreeNode root){
-        if(root==null){
+
+    public int diameter(TreeNode root) {
+        if (root == null) {
             return 0;
         }
-        if(root.left==null&&root.right==null){
+        int left = height(root.left);
+        int right = height(root.right);
+        int h = left + right;
+        return h;
+    }
+
+    public static int height(TreeNode root) {
+        if (root == null) {
             return 0;
         }
-        return 1+Math.max(height(root.left),height(root.right));
+        return 1 + Math.max(height(root.left), height(root.right));
     }
 }
