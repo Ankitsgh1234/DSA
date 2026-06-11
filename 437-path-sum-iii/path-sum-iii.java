@@ -15,27 +15,22 @@
  */
 class Solution {
     public int pathSum(TreeNode root, int targetSum) {
-       
         if(root==null){
             return 0;
         }
-         int count=sum(root,targetSum);
-        count+= pathSum(root.left,targetSum)+pathSum(root.right,targetSum);
-        return count;
+        int c=p(root,targetSum);
+         c+=pathSum(root.left,targetSum)+pathSum(root.right,targetSum);
+        return c;
     }
 
-    public static int sum(TreeNode root,long sum){
-        
+    public static int p(TreeNode root,long sum){
         if(root==null){
             return 0;
-
         }
-        int count=0;
+        int c=0;
         if(root.val==sum){
-            count++;
+            c++;
         }
-       
-        return count+ sum(root.left,sum-root.val)+sum(root.right,sum-root.val);
-        
+        return c+p(root.left,sum-root.val)+p(root.right,sum-root.val);
     }
 }
