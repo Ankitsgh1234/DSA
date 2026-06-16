@@ -18,19 +18,14 @@ class Solution {
         if(root==null){
             return false;
         }
-        return sum(root,targetSum);
-        
-    }
-    public static boolean sum(TreeNode root,int sum){
-        if(root==null){
-            return false;
-        }
-        sum-=root.val;
         if(root.left==null&&root.right==null){
-            return sum==0;
+
+        if(root.val==targetSum){
+            return true;
         }
-       
-        return sum(root.left,sum)||sum(root.right,sum);
-        
+        }
+        targetSum-=root.val;
+        return hasPathSum(root.left,targetSum)||
+        hasPathSum(root.right,targetSum);
     }
 }
