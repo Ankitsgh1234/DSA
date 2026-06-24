@@ -19,8 +19,6 @@ class Solution {
                 st2.push(c);
             }
         }
-        System.out.println(st1);
-        System.out.println(st2);
         boolean f= st1.equals(st2);
         return f;
     }
