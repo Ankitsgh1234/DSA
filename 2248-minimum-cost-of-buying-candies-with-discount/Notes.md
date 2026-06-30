@@ -1,1 +1,1 @@
-<h2>minimum-cost-of-buying-candies-with-discount Notes</h2><hr>[ Time taken: 37m 12s ]
+<h2>minimum-cost-of-buying-candies-with-discount Notes</h2><hr>[ Time taken: 46m 59s ]
