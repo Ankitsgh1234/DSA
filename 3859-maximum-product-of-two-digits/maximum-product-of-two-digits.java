@@ -11,8 +11,6 @@ class Solution {
         Collections.sort(arr);
         max=arr.get(arr.size()-1);
         int smax=arr.get(arr.size()-2);
-
-        
         // for(int i:arr){
         //     if(i>max)
         //     max=i;
